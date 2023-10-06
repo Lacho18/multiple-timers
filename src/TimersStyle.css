@@ -1,0 +1,33 @@
+.timers {
+    display: inline-block;
+    margin: 30px;
+    border: 4px solid black;
+    border-radius: 10px;
+    width: 20%;
+    height: 20%;
+    background-image: linear-gradient(to right, #ff0066, #9966ff);
+}
+
+.timers > h2 {
+    text-align:center;
+}
+
+.timers > p {
+    position: relative;
+    display: inline;
+    margin: 15px;
+    left: 15%;
+    font-size: 1.8vmax;
+}
+
+#buttonsDiv {
+    background-image: linear-gradient(to right, #99ccff, #6699ff);
+    margin-top: 20px;
+}
+
+#buttonsDiv > button {
+    width: 25%;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 1.2vmax;
+}
