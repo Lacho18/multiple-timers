@@ -31,3 +31,44 @@
     border-radius: 10px;
     font-size: 1.2vmax;
 }
+
+#selectionMenu {
+    position: absolute;
+    width: 6%;
+    height: 4%;
+    background-image: linear-gradient(to right, #ffff00, #cc9900);
+    font-size: 1.8vmax;
+    text-align: center;
+    max-width: 20%;
+    left: 34%;
+
+}
+
+#selectionMenu > option {
+    background-image: linear-gradient(to right, #ffff00, #cc9900);
+}
+
+.borderAnimation {
+    border: 3px solid white;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: ease 3s borderColor;
+}
+
+@keyframes borderColor {
+    0% {
+        border-color: #ffff99;
+    }
+    25% {
+        border-color: #ffffcc;
+    }
+    50% {
+        border-color: #ffff66;
+    }
+    75% {
+        border-color: #ffffcc;
+    }
+    100% {
+        border-color: white;
+    }
+}
