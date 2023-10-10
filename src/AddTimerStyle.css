@@ -1,0 +1,92 @@
+.add-user-main-div {
+    position: relative;
+    width: 209.7vh;
+    height: 100vh;
+    background-image: linear-gradient(to right, #cccc00, #cc9900);
+}
+
+.add-user-div {
+    position: absolute;
+    background-color: aqua;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 60%;
+    border: 5px solid black;
+    border-radius: 18px;
+    background-image: linear-gradient(to right, #ccff66, #ccff33);
+}
+
+.name-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: inline;
+    padding: 15px;
+}
+
+.name-div > label {
+    font-size: 2vmax;
+    margin-right: 100px;
+}
+
+.name-div > input {
+    padding-left: 20px;
+    font-size: 1.8vmax;
+}
+
+.time-div {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    display: inline-block;
+}
+
+.time-div > label {
+    position: absolute;
+    width: 100%;
+    font-size: 2.5vmax;
+    text-align: center;
+}
+
+.time-div > p {
+    position: relative;
+    display: inline;
+    font-size: 3.5vmax;
+    margin-left: 75px;
+    margin-right: 75px;
+    top: 40%;
+}
+
+#addButton {
+    position: relative;
+    top: 80%;
+    width: 80%;
+    height: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    font-size: 3vmax;
+}
+
+#backButton {
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    width: 10%;
+    height: 10%;
+    border-radius: 30px;
+    font-size: 2vmax;
+    background-color: #ffcc66;
+    border: 5px solid black;
+}
+
+#backButton :hover{
+    background-image: linear-gradient(to right, #ffff99, #ffcc66);
+    font-size: 1vmax;
+}
+

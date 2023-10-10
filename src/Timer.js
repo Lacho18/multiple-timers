@@ -9,14 +9,14 @@ export default function Timer(props) {
     const [object, setObject] = useState(props);
 
     //if(intervalIsRunning == false) {
-        intervalIsRunning = true;
+        /*intervalIsRunning = true;
         animationInterval = setInterval(() => {
             let objectText = document.getElementById('hours');
             objectText.classList.add('borderAnimation');
             setInterval(() => {
                 objectText.classList.remove('borderAnimation');
             }, 3000);
-        }, 10000);
+        }, 10000);*/
    // }
 
     function selectMenuCreation(divID, value, timeType) {
