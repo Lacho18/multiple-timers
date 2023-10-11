@@ -90,3 +90,84 @@
     font-size: 1vmax;
 }
 
+#AddButton {
+    position: fixed;
+    width: 12%;
+    height: 10%;
+    top: 80%;
+    left: 80%;
+    border-radius: 18px;
+    border: 5px solid black;
+    font-size: 2vmax;
+    background-color: #cc9900;
+}
+
+.set-time-div {
+    position: absolute;
+    border: 5px solid black;
+    border-radius: 18px;
+    display: none;
+    background-image: linear-gradient(to right, #99ccff, #9900cc);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 60%;
+    z-index: 1;
+}
+
+.set-time-div > input {
+    width: 80%;
+    left: 50%;
+    transform: translateX(10%);
+    margin-top: 10px;
+    margin-bottom: 5px;
+    height: 15%;
+    font-size: 1.8vmax;
+}
+
+.set-time-div > button {
+    width: 35%;
+    height: 25%;
+    font-size: 1.2vmax;
+    margin-top: 30px;
+    margin-left: 70px;
+    display: inline;
+    background-color: #ffccff;
+    border-radius: 7px;
+}
+
+.set-time-div > p {
+    text-align: center;
+    font-size: 2vmax;
+    font-weight: bold;
+}
+
+.set-time-div-appearence {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline;
+    animation: ease 1s divAppearence;
+}
+
+@keyframes divAppearence {
+    0% {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0.01%;
+        height: 0.01%;
+    }
+    100% {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 60%;
+    }
+}
+

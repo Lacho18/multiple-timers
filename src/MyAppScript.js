@@ -29,11 +29,24 @@ export default function MyAppScript() {
         })
     }
 
+    function deleteTimer(id) {
+        settimersDataState(oldValue => {
+            oldValue = oldValue.filter(indexValue => {
+                if(indexValue.id !== id) {
+                    return true;
+                }
+                return false;
+            });
+
+            return oldValue;
+        });
+    }
+
     if(buttonClicked) {
         return(
             <div>
-                {timersDataState.map(indexValue => {return  <Timer {...indexValue}/>})}
-                <button onClick={showAddTimerMenu}>Add Timer</button>
+                {timersDataState.map(indexValue => {return  <Timer key={indexValue.id} {...indexValue}  deleteTimerFunction={deleteTimer}/>})}
+                <button onClick={showAddTimerMenu} id="AddButton">Add Timer</button>
             </div>
         );
     }

@@ -105,8 +105,13 @@ export default function Timer(props) {
         });
     }
 
+    function onDeleteHandle(id) {
+        props.deleteTimerFunction(id);
+    }
+
     return(
         <div className='timers' id={"timerRoot"+props.id}>
+            <button id='deleteTimerButton' onClick={() => {onDeleteHandle(props.id);}}>X</button>
             <h2>{object.name}</h2>
             {object.hours < 10 ? <p id='hours' onClick={() =>  selectMenuCreation("timerRoot" + props.id, 24, "hours")}>0{object.hours}h</p> 
                                 : <p id='hours' onClick={() =>  selectMenuCreation("timerRoot" + props.id, 24, "hours")}>{object.hours}h</p>} 

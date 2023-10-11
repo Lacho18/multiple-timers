@@ -72,3 +72,11 @@
         border-color: white;
     }
 }
+
+#deleteTimerButton {
+    background-color: red;
+    left: 100%;
+    position: relative;
+    transform: translateX(-100%);
+    border-radius: 3px;
+}
