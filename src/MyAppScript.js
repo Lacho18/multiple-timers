@@ -3,6 +3,8 @@ import timersData from "./timersDataArray";
 import {useState} from 'react';
 import AddTimer from "./AddTimer";
 
+const intervalRegistry = [];
+
 export default function MyAppScript() {
     const [timersDataState, settimersDataState] = useState(timersData);
     const [buttonClicked, setButtonClicked] = useState(true);
@@ -21,11 +23,8 @@ export default function MyAppScript() {
 
     function addUser(object) {
         settimersDataState(oldArray => {
-            let newObject = object;
-            newObject.id = oldArray.length + 1;
-            console.log(newObject);
-            oldArray.push(newObject);
-            return oldArray;
+            const newObject = { ...object, id: oldArray.length + 1 };
+            return [...oldArray, newObject];
         })
     }
 
@@ -45,7 +44,7 @@ export default function MyAppScript() {
     if(buttonClicked) {
         return(
             <div>
-                {timersDataState.map(indexValue => {return  <Timer key={indexValue.id} {...indexValue}  deleteTimerFunction={deleteTimer}/>})}
+                {timersDataState.map(indexValue => {return  <Timer key={indexValue.id} {...indexValue}  deleteTimerFunction={deleteTimer} inerValArray = {intervalRegistry}/>})}
                 <button onClick={showAddTimerMenu} id="AddButton">Add Timer</button>
             </div>
         );

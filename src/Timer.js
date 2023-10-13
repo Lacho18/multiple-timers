@@ -2,8 +2,8 @@ import {useState} from 'react';
 import "./TimersStyle.css";
 
 let intervalIsRunning = false;
-let interval;
 let animationInterval;
+let timerInterval;
 
 export default function Timer(props) {
     const [object, setObject] = useState(props);
@@ -71,7 +71,7 @@ export default function Timer(props) {
         let seconds = object.seconds;
 
         intervalIsRunning = true;
-        interval = setInterval(() => {
+        timerInterval = createInterval(() => {
             if(seconds > 0) {
                 seconds--;
             }
@@ -85,17 +85,31 @@ export default function Timer(props) {
                 seconds = 59;
             }
             else {
-                clearInterval(interval);
+                clearIntervalById(timerInterval);
             }
 
             setObject(oldObject => {
                 return {...oldObject, hours : hours, minutes : minutes, seconds : seconds};
-            });
+            });   
         }, 1000);
     }
 
+    function createInterval(callBack, interval) {
+        let id = setInterval(callBack, interval);
+        props.inerValArray.push({id, callBack});
+        return id;
+    }
+
+    function clearIntervalById(id) {
+        clearInterval(id);
+        const index = props.inerValArray.findIndex((item) => item.id === id);
+        if (index !== -1) {
+            props.inerValArray.splice(index, 1);
+        }
+    }
+
     function onStop() {
-        clearInterval(interval);
+        clearIntervalById(timerInterval);
     }
 
     function onReset() {

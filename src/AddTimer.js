@@ -1,7 +1,7 @@
+import {useState} from 'react';
 import "./AddTimerStyle.css";
 import SetTime from "./SetTime";
 
-let currentTimeSelected;
 let objectToSend = {
     id : 0,
     name : null,
@@ -11,6 +11,7 @@ let objectToSend = {
 };
 
 export default function AddTimer(props) {
+    const [currentTimeSelected, setCurrentTimeSelected] = useState("");
 
     function goBack() {
         props.onBack();
@@ -28,7 +29,7 @@ export default function AddTimer(props) {
     }
 
     function setterOfTime(timeKind) {
-        currentTimeSelected = timeKind;
+        setCurrentTimeSelected(timeKind);
         let setDiv = document.getElementsByClassName('set-time-div');
         setDiv[0].classList.add('set-time-div-appearence');
     }
@@ -39,17 +40,40 @@ export default function AddTimer(props) {
         let numberInput = document.getElementById("numberInput");
         let newTextValue;
         switch(currentTimeSelected) {
-            case "hours" : objectToSend.hours = numberInput.value;
+            case "hours" : 
+            if(numberInput.value < 24) {
+                objectToSend.hours = numberInput.value;
+            }
+            else {
+                objectToSend.hours = 23;
+            }
+            
             newTextValue = document.getElementById('hoursParagraf');
             newTextValue.innerHTML = objectToSend.hours < 10 ? "0" +objectToSend.hours + "h" : objectToSend.hours + "h";
             break;
-            case "minutes" : objectToSend.minutes = numberInput.value;
+
+            case "minutes" : 
+            if(numberInput.value < 60) {
+                objectToSend.minutes = numberInput.value;
+            }
+            else {
+                objectToSend.minutes = 59;
+            }
+           
             newTextValue = document.getElementById('minutesParagraf');
-            newTextValue.innerHTML = objectToSend.hours < 10 ? "0" +objectToSend.minutes + "m" : objectToSend.minutes + "m";
+            newTextValue.innerHTML = objectToSend.minutes < 10 ? "0" +objectToSend.minutes + "m" : objectToSend.minutes + "m";
             break;
-            case "seconds" : objectToSend.seconds = numberInput.value;
+
+            case "seconds" : 
+            if(numberInput.value < 60) {
+                objectToSend.seconds = numberInput.value;
+            }
+            else {
+                objectToSend.seconds = 59;
+            }
+
             newTextValue = document.getElementById('secondsParagraf');
-            newTextValue.innerHTML = objectToSend.hours < 10 ? "0" +objectToSend.seconds + "s" : objectToSend.seconds + "s";
+            newTextValue.innerHTML = objectToSend.seconds < 10 ? "0" +objectToSend.seconds + "s" : objectToSend.seconds + "s";
             break;
         }
     }
@@ -74,7 +98,7 @@ export default function AddTimer(props) {
             <div className="set-time-div">
                 <p>Set value to {currentTimeSelected}</p>
                 <input type="number" id="numberInput"/>
-                <button onClick={afterSetTime}>Set time to</button>
+                <button onClick={afterSetTime}>Set time to <span style={{color : "darkred", fontWeight : "bolds"}}>{currentTimeSelected}</span></button>
                 <button onClick={() => {
                     let setDiv = document.getElementsByClassName('set-time-div');
                     setDiv[0].classList.remove('set-time-div-appearence');
